@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
 }
 
 .App-logo {
@@ -14,14 +22,9 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 20px;
+
 }
 
 .App-link {
@@ -35,4 +38,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.body {
+  margin-bottom: 10px;
+}
+
+div.messagebox {
+  float: right;
+  width: 45%;
+}
+
+div.message {
+  float: unset;
+  width: 85%;
+  margin-top: 10%;
+}
+
+div.image {
+  float: left;
+  width: 45%;
+}
+
+div.image img{
+  width: 85%;
+}
+
+.footer {
+  font-size: small;  
+}
+.footer img {
+  margin: 5px;
 }
