@@ -1,7 +1,20 @@
 import React from 'react';
 import './App.css';
+import FooterLinks, {FooterProp} from './footerLinks';
+
+let footerVals:Array<FooterProp> = [
+  {link:'https://www.twitter.com/slacker525600', image:'small_goose.png',altText:'bird'},
+  {link:'https://www.facebook.com/slacker525600', image:'face.png',altText:'face'},
+  {link:'https://www.github.com/slacker525600', image:'code.png',altText:'code'},
+  {link:'https://www.linkedin.com/in/chrisecker', image:'work.png',altText:'work'},
+];
 
 function App() {
+  /* just using this entrypoint to write some html today, 
+  next steps, make a couple components, 
+  link that clears main and loads sub page, 
+  
+  */
   return (
     <div className="App">
       <header className="App-header">
@@ -19,41 +32,42 @@ function App() {
             <div className='message'>
               Hello World!
               <br />
-              thoughts on things I'll likely put into this page 
-              links to other things I've done,
-              styling the page to not look like a blank white nothing
+              Thoughts on things I'll likely put into this page: 
+              <br />
+              links to other things I've done, see linkedin link below
+              <br />
+              styling this page to not look like a blank nothing
+              <br />
               what am I trying to convey with personal page why am I putting this out there at all 
+              <br />
               blog personal feelings about whatever ... likely a link to another provider vs actually hosted here
+              <br />
               how to contact me 
-              personal hobbies and projects 
+              <br />
+              personal hobbies and projects (pinball ) 
+              <br />
               lulz
+              <br />
+              As somebody who is visiting this site, let me know if theres something you'd expect to see here that isn't. 
+              <br />
+              <br />
+              Most of my coding work is for pay. 
+              And I respect my employer contracts so I don't share that work generally. 
+              I've kicked the tires on things in my spare time and done some challenges etc 
+              but mostly just playing games and decompressing when I'm not on the clock. 
+              <br />
+              Anyways, the thing I wanted to start here (once I have the bare minimum out of the way) was an idea for an app I haven't started yet 
+              'How Big is My Baby'.
 
             </div>
           </div>
 
       </body>
 
-
-     <div className="footer">
-        
-        <a href="https://www.twitter.com/slacker525600">
-          <img height={32} width={32} alt="bird" src={require('./small_goose.png')} /> 
-        </a>
-        <a href="https://www.facebook.com/slacker525600"> 
-          <img height={32} width={32} alt="face" src={require('./face.png')} />  
-        </a>
-        <a href="https://www.github.com/slacker525600" > 
-          <img height={32} width={32} alt="git" src={require('./code.png')} />
-        </a>
-        <a href="https://www.linkedin.com/in/chrisecker">
-          <img height={32} width={32} alt="work" src={require('./work.png')} /> 
-        </a>
-        <br />
-        copyright chris ecker 2022
-     </div>
+     <FooterLinks items={footerVals} />
 
     </div>
   );
-}
+};
 
 export default App;
