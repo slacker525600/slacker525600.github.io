@@ -33,15 +33,13 @@ const FooterLink:FC<FooterProp> =
         <img height={50} width={50} alt={altText} src={require('./' +image)} /> 
     </a>;
 
-const FooterLinks:FC<FooterLinksProp> = ({items}) => {
-    console.log(items)
-    return (
+const FooterLinks:FC<FooterLinksProp> = ({items}) => (
         <div className="footer">
             { items.map((item) => <FooterLink link={item.link} altText={item.altText} image={item.image} />) }
             <br />
             copyright chris ecker 2022
         </div>
-)};
+);
 
 
 export default FooterLinks;
