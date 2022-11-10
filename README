@@ -1,0 +1,6 @@
+## Personal Homepage
+
+Currently hosted on githubio which basically requires static files in the repo where I'd have thought they'd love a github action to drop those into a store with ... 
+anyways, using react in the slacker525600 folder to push built assets into the docs folder since thats a preconfigured destination in github ...
+readme for how to build in slacker525600 folder but basically just a typescript create react app ... for now. 
+ 
