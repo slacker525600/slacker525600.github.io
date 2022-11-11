@@ -30,7 +30,7 @@ const footerVals: FooterProp[] = [
 const FooterLink: FC<FooterProp> =
 ({ link, altText, image }) =>
   <a key={link} href={link}>
-      <img height={50} width={50} alt={altText} src={require('./' + image)} />
+      <img height={50} width={50} alt={altText} src={require('./img/' + image)} />
   </a>
 
 const FooterLinks: FC = () => (

@@ -3,11 +3,6 @@ import './App.css'
 import FooterLinks from './footerLinks'
 
 function App (): ReactElement<any, any> {
-  /* just using this entrypoint to write some html today,
-  next steps, make a couple components,
-  link that clears main and loads sub page,
-
-  */
   return (
     <div className="App">
       <div className="App-header">
