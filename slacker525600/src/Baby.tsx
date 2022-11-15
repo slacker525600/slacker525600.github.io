@@ -17,6 +17,15 @@ export interface BabyProp {
 };
 */
 
+const BabyOutputs: FC = () => {
+  return (
+    <div>
+      Hard coding 0 days literal response.
+      100 microns in diameter
+    </div>
+  )
+}
+
 const BabyInputs: FC = () => {
   return (
     <form >
@@ -42,7 +51,7 @@ const Baby: FC = () => {
       <div className="main-block">
         <div className='content'>
           <div className='image'>
-
+            <BabyOutputs />
           </div>
         </div>
         <div className='inputs'>

@@ -7,11 +7,11 @@ import reportWebVitals from './reportWebVitals'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider
 } from 'react-router-dom'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <App />,
