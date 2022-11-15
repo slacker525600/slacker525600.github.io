@@ -52,7 +52,6 @@ div.messagebox {
 div.message {
   float: unset;
   width: 85%;
-  margin-top: 10%;
 }
 
 div.image {
@@ -65,7 +64,8 @@ div.image img{
 }
 
 .footer {
-  font-size: small;  
+  padding-top: 20px;
+  font-size: small;
 }
 .footer img {
   margin: 5px;

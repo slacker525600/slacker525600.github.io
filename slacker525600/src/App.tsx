@@ -1,4 +1,6 @@
 import React, { ReactElement } from 'react'
+import { Link } from 'react-router-dom'
+
 import './App.css'
 import FooterLinks from './footerLinks'
 
@@ -45,7 +47,7 @@ function App (): ReactElement<any, any> {
             but mostly just playing games and decompressing when I&#39;m not on the clock.
             <br />
             Anyways, the thing I wanted to start here (once I have the bare minimum out of the way) was an idea for an app I haven&#39;t started yet
-            &#39;<a href='baby-sizes'>How Big is My Baby</a>&#39;.
+            &#39;<Link to='/baby-sizes'>How Big is My Baby</Link>&#39;.
           </div>
         </div>
       </div>
