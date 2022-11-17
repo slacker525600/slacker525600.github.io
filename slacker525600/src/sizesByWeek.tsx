@@ -84,22 +84,95 @@ export const makeBabyInfo = (lineArray: string[]): BabySizeInfo => {
 
 //   return result
 // }
-/*
-just saving the less<7 weeks grams estimate here.
-const grams = [0.00075,
-  0.0015,
-  0.00307,
-  0.06125,
-  0.125,
-  0.25,
-  0.5,
-  1,
-  2,
-*/
+
 const sizesByWeek: BabySizeInfo[] = [
   {
+    Week: 1,
+    Grams: '0.0075 g',
+    Pounds: '.000016 lb',
+    Centimeters: '',
+    Inches: '',
+    Home: 'Grain of sand on the floor',
+    Goth: '',
+    Office: 'Grain of sand on the floor',
+    Nature: 'Grain of sand at the beach',
+    Tools: 'Single flake of sawdust',
+    Animals: '',
+    Etc: ''
+  },
+  {
+    Week: 2,
+    Grams: '0.015125 g',
+    Pounds: '',
+    Centimeters: '',
+    Inches: '',
+    Home: '',
+    Goth: '',
+    Office: '',
+    Nature: '',
+    Tools: '',
+    Animals: '',
+    Etc: ''
+  },
+  {
+    Week: 3,
+    Grams: '0.03125 g',
+    Pounds: '',
+    Centimeters: '',
+    Inches: '',
+    Home: '',
+    Goth: '',
+    Office: '',
+    Nature: '',
+    Tools: '',
+    Animals: '',
+    Etc: ''
+  },
+  {
+    Week: 4,
+    Grams: '.0625 g',
+    Pounds: '',
+    Centimeters: '',
+    Inches: '',
+    Home: '',
+    Goth: '',
+    Office: '',
+    Nature: '',
+    Tools: '',
+    Animals: '',
+    Etc: ''
+  },
+  {
+    Week: 5,
+    Grams: '.125 g',
+    Pounds: '',
+    Centimeters: '',
+    Inches: '',
+    Home: '',
+    Goth: '',
+    Office: '',
+    Nature: '',
+    Tools: '',
+    Animals: '',
+    Etc: ''
+  },
+  {
+    Week: 6,
+    Grams: '.25 g',
+    Pounds: '',
+    Centimeters: '',
+    Inches: '',
+    Home: '',
+    Goth: '',
+    Office: '',
+    Nature: '',
+    Tools: '',
+    Animals: '',
+    Etc: ''
+  },
+  {
     Week: 7,
-    Grams: '>1 g',
+    Grams: '.5 g',
     Pounds: '>0.002',
     Centimeters: '>1.6',
     Inches: '>0.6',

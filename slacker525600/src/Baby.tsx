@@ -38,11 +38,11 @@ const BabyInputs: FC<babyInputProps> = ({ weeks, weeksSetter, comparisonType, co
 }
 
 const Baby: FC = () => {
-  const [weeks, setWeeks] = useState(0)
-  const [comparisonType, setComparisonType] = useState('Literal')
+  const [weeks, setWeeks] = useState(1)
+  const [comparisonType, setComparisonType] = useState('Grams')
 
   const handleWeeksChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const weeksVal: number = +event.currentTarget.value
+    const weeksVal: number = +event.currentTarget.value > 0 ? +event.currentTarget.value : 1
     setWeeks(weeksVal)
   }
 
@@ -63,7 +63,7 @@ const Baby: FC = () => {
             <BabyOutputs weeks={weeks} comparisonType={comparisonType} />
           </div>
         </div>
-        <div className='inputs'>
+        <div className='messagebox'>
           <div className='message'>
             Please adjust these inputs to specify the size of your baby and the app will attempt to find a suitable comparison.
           </div>

@@ -5,11 +5,12 @@ import sizesByWeek, { getBabySizeField } from './sizesByWeek'
 const getBabySizeDiv: FC<babyProps> = ({ weeks, comparisonType }) => {
   const message = `Your Baby is ${comparisonType}ly: `
   let size: string = '100 microns in diameter'
-  // if (weeks > 0) {
+
   let match = sizesByWeek.filter((val, index) => {
     return getBabySizeField(val, comparisonType) !== '' &&
     val.Week === weeks
   })
+
   if (match.length === 1) {
     size = getBabySizeField(match[0], comparisonType)
   } else if (match.length > 1) {
@@ -27,9 +28,14 @@ const getBabySizeDiv: FC<babyProps> = ({ weeks, comparisonType }) => {
     }
     console.log(match)
     console.log(index)
-    size = `Somewhere between a ${getBabySizeField(match[index - 1], comparisonType)} and` +
-    ` a ${getBabySizeField(match[index], comparisonType)}`
+    if (index > 0) {
+      size = `Somewhere between a ${getBabySizeField(match[index - 1], comparisonType)} and` +
+      ` a ${getBabySizeField(match[index], comparisonType)}`
+    } else {
+      size = `We don't have a good estimate in this category for that time but the closest datapoint is a ${getBabySizeField(match[index], comparisonType)}`
+    }
   }
+
   return (
     <div>
       { message + size }
