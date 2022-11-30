@@ -1,8 +1,16 @@
-// import fs from 'fs'
-// copied shamelessly from https://www.geeksforgeeks.org/how-to-convert-csv-to-json-file-having-comma-separated-values-in-node-js/
-// it had a copy button so I assume they're ok with it.
-// then rewrote most of it ...
-// and then just manually converted the matrix because it was easier
+import { babySize } from '../babyTypes'
+
+// ermagerd much better, estimate baby weight/length/volume
+// list of objects with tags, filter on tags, find nearest by priorty, do comparison.
+// logic on comparison types is really just a tag
+// want to mange each type as a separate import, in case logic changes but also simply to organize info better
+// Home: string
+// Goth: string
+// Office: string
+// Nature: string
+// Tools: string
+// Animals: string
+// Etc: string
 
 export interface BabySizeInfo {
   Week: number
@@ -47,53 +55,24 @@ export const getBabySizeField = (babySize: BabySizeInfo, fieldName: string): str
   return toReturn
 }
 
-export const makeBabyInfo = (lineArray: string[]): BabySizeInfo => {
-  return {
-    Week: +lineArray[0],
-    Grams: lineArray[1],
-    Pounds: lineArray[2],
-    Centimeters: lineArray[3],
-    Inches: lineArray[4],
-    Home: lineArray[5],
-    Goth: lineArray[6],
-    Office: lineArray[7],
-    Nature: lineArray[8],
-    Tools: lineArray[9],
-    Animals: lineArray[10],
-    Etc: lineArray[11]
+export const babySizes: babySize[] = [
+  {
+    week: 1,
+    weightGrams: 0.0075,
+    lengthCm: 0.0002,
+    volumeMl: 0.000000001
   }
-}
-
-// really this should be in a db or something, but dealing without a backend for now
-// would like to make this more generic and accept a type of data to pull from file... but why
-// export const getBabySizeCsv = (): BabySizeInfo[] => {
-//   const result: BabySizeInfo[] = []
-//   // Reading the file using default
-//   // fs npm package
-//   const csv = fs.readFileSync('')
-
-//   // Convert the data to String and split it in an array
-//   const lineArray = csv.toString().split('\r')
-
-//   // Since headers are separated, we need to traverse remaining n-1 rows.
-//   lineArray.slice(1).forEach((value) => {
-//     // split line on , create object with header row as fieldname and push
-//     const rowArray = value.split(',')
-//     result.push(makeBabyInfo(rowArray))
-//   })
-
-//   return result
-// }
+]
 
 const sizesByWeek: BabySizeInfo[] = [
   {
     Week: 1,
     Grams: '0.0075 g',
     Pounds: '.000016 lb',
-    Centimeters: '',
+    Centimeters: '200 microns',
     Inches: '',
     Home: 'Grain of sand on the floor',
-    Goth: '',
+    Goth: '50 Tuberculosis bacteria',
     Office: 'Grain of sand on the floor',
     Nature: 'Grain of sand at the beach',
     Tools: 'Single flake of sawdust',
@@ -173,9 +152,9 @@ const sizesByWeek: BabySizeInfo[] = [
   {
     Week: 7,
     Grams: '.5 g',
-    Pounds: '>0.002',
-    Centimeters: '>1.6',
-    Inches: '>0.6',
+    Pounds: '>0.002 lb',
+    Centimeters: '.8 cm',
+    Inches: '0.6',
     Home: 'watch battery',
     Goth: 'several tears',
     Office: 'a single staple',
@@ -188,7 +167,7 @@ const sizesByWeek: BabySizeInfo[] = [
     Week: 8,
     Grams: '1',
     Pounds: '0.0022',
-    Centimeters: '1.6',
+    Centimeters: '1.6 cm',
     Inches: '0.624',
     Home: '',
     Goth: 'brown recluse spider',
