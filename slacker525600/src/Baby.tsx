@@ -1,7 +1,8 @@
 import React, { ChangeEvent, FC, useState } from 'react'
 import { babyInputProps, babyProps } from './babyTypes'
 import FooterLinks from './footerLinks'
-import getBabySizeDiv, { getComparisonTypes, getPriorityOptions } from './size_logic/sizeLogic'
+import getBabySizeDiv, { getPriorityOptions } from './size_logic/sizeLogic'
+import { getComparisonTypes } from './size_logic/comparisonObjects'
 
 /*
 Current idea is to provide an easy to use baby size comparison application.
@@ -32,7 +33,7 @@ const BabyInputs: FC<babyInputProps> = (
       <label htmlFor="comparisonType" > Choose a comparison type: </label>
       <select id="comparisonType" name="comparisonType" value={comparisonType} onChange={comparisonTypeSetter}>
         {
-          getComparisonTypes().map((comparisonType) => {
+          getComparisonTypes().map((comparisonType: string) => {
             return <option value={comparisonType} key={comparisonType} >{comparisonType}</option>
           })
         }
@@ -53,7 +54,7 @@ const BabyInputs: FC<babyInputProps> = (
 
 const Baby: FC = () => {
   const [weeks, setWeeks] = useState(1)
-  const [comparisonType, setComparisonType] = useState('Grams')
+  const [comparisonType, setComparisonType] = useState('Goth')
   const [priority, setPriority] = useState('Weight')
 
   const handleWeeksChange = (event: ChangeEvent<HTMLInputElement>): void => {

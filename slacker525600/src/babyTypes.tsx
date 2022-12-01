@@ -24,3 +24,28 @@ export interface babyInputProps extends babyProps {
   comparisonTypeSetter: (event: ChangeEvent<HTMLSelectElement>) => void
   prioritySetter: (event: ChangeEvent<HTMLSelectElement>) => void
 }
+
+export class BabyComparisonObject {
+  weight: number
+  length: number
+  volume: number
+  objectTypeLabel: string
+  objectName: string
+  objectImg: string
+
+  constructor (
+    weight: number,
+    length: number,
+    volume: number,
+    objectTypeLabel: string,
+    objectName: string,
+    objectImg: string
+  ) {
+    this.weight = weight
+    this.length = length
+    this.volume = volume
+    this.objectTypeLabel = objectTypeLabel
+    this.objectName = objectName
+    this.objectImg = objectImg
+  }
+}
