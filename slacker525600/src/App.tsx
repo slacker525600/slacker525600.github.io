@@ -24,29 +24,26 @@ function App (): ReactElement<any, any> {
             <br />
             Thoughts on things I&#39;ll likely put into this page:
             <br />
-            links to other things I&#39;ve done, see linkedin link below
+            lulz
+            <br />
+            links to other things I&#39;ve done, see linkedin link below (its the whiteboard image)
             <br />
             styling this page to not look like a blank nothing
             <br />
-            what am I trying to convey with personal page why am I putting this out there at all
+            blog link maybe? Personal feelings about things, I&#39;ve got my twitter below, but likely a link to another provider as well
             <br />
-            blog personal feelings about whatever ... likely a link to another provider vs actually hosted here
-            <br />
-            how to contact me
-            <br />
-            personal hobbies and projects (pinball )
-            <br />
-            lulz
+            personal hobbies and projects (pinball?)
             <br />
             As somebody who is visiting this site, let me know if theres something you&#39;d expect to see here that isn&#39;t.
             <br />
             <br />
             Most of my coding work is for pay.
             And I respect my employer contracts so I don&#39;t share that work generally.
-            I&#39;ve kicked the tires on things in my spare time and done some challenges etc
-            but mostly just playing games and decompressing when I&#39;m not on the clock.
             <br />
-            Anyways, the thing I wanted to start here (once I have the bare minimum out of the way) was an idea for an app I haven&#39;t started yet
+            I&#39;ve kicked the tires on projects in my spare time so feel free to check out the github link at the &#39;code&#39; image below and I&#39;ve done some <a href='https://github.com/slacker525600/challenges'>challenges </a> etc
+            but mostly just interacting with friends and family, or playing games and decompressing when I&#39;m not on the clock.
+            <br />
+            Anyways, the thing I wanted to start here (once I have the bare minimum out of the way) was an idea for an app I&#39;ve hardly started yet
             &#39;<Link to='/baby-sizes'>How Big is My Baby</Link>&#39;.
           </div>
         </div>
