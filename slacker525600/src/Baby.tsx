@@ -1,24 +1,8 @@
 import React, { ChangeEvent, FC, useState } from 'react'
-import { babyInputProps, babyProps } from './babyTypes'
+import { babyInputProps } from './babyTypes'
 import FooterLinks from './footerLinks'
-import getBabySizeDiv, { getPriorityOptions } from './size_logic/sizeLogic'
+import BabySizeDiv, { getPriorityOptions } from './size_logic/sizeLogic'
 import { getComparisonTypes } from './size_logic/comparisonObjects'
-
-/*
-Current idea is to provide an easy to use baby size comparison application.
-then move to weeks since fertilization yielding mass
-then move to all the other things (types/weightvslength/)
-then worry about UX of interaction of above ... ratios lulz
-*/
-
-const BabyOutputs: FC<babyProps> = ({ weeks, comparisonType, priority }) => {
-  return (
-    <div>
-      At {weeks} weeks... <br />
-      {getBabySizeDiv({ weeks, comparisonType, priority })}
-    </div>
-  )
-}
 
 const BabyInputs: FC<babyInputProps> = (
   {
@@ -40,7 +24,7 @@ const BabyInputs: FC<babyInputProps> = (
       </select>
       <br />
       <label htmlFor="weeks">Weeks since conception:</label>
-      <input type='number' id='weeks' value={weeks} onChange={weeksSetter}></input>
+      <input type='number' id='weeks' value={weeks} onChange={weeksSetter} min="0" max="42"></input>
       <label htmlFor="priority">Size Priority:</label>
       <select id="priority" name="priority" value={priority} onChange={prioritySetter}>
         {
@@ -80,7 +64,7 @@ const Baby: FC = () => {
       <div className="main-block">
         <div className='content'>
           <div className='image'>
-            <BabyOutputs weeks={weeks} comparisonType={comparisonType} priority={priority} />
+            <BabySizeDiv weeks={weeks} comparisonType={comparisonType} priority={priority} />
           </div>
         </div>
         <div className='messagebox'>

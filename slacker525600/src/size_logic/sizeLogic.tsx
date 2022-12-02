@@ -3,7 +3,7 @@ import { babyProps, sizeDisplay } from '../babyTypes'
 import sizesByWeek, { getValByWeekSize } from './sizesByWeek'
 import comparisonObjects, { getValByCompType } from './comparisonObjects'
 
-const getSizeDiv: FC<sizeDisplay> = ({ week, size, bMetric }) => {
+const SizeDiv: FC<sizeDisplay> = ({ week, size, bMetric }) => {
   return (
     <div>
       An average baby at week {week} is: <br />
@@ -14,8 +14,7 @@ const getSizeDiv: FC<sizeDisplay> = ({ week, size, bMetric }) => {
   )
 }
 
-// want to add comparison metric, is the value we want to favor, mass, length, volume?
-const getBabySizeDiv: FC<babyProps> = ({ weeks, comparisonType, priority }) => {
+const BabySizeDiv: FC<babyProps> = ({ weeks, comparisonType, priority }) => {
   // get week stats for mass/length/volume
   // check nearest options
   // filter list by tag, sort by priority, then find nearest match.
@@ -43,20 +42,19 @@ const getBabySizeDiv: FC<babyProps> = ({ weeks, comparisonType, priority }) => {
 
   return (
     <div>
-      { getSizeDiv({ week: weeks, size: sizesByWeek[weeks], bMetric: true }) }
-      { `Your Baby is ${comparisonType}ly: ${displayVal}` }
+      <SizeDiv week={weeks} size={sizesByWeek[weeks]} bMetric={false} />
+      { `In an ${comparisonType}-ly sense your Baby is: ${displayVal}` }
     </div>
   )
 }
 
 export const getPriorityOptions = (): string[] => {
-  return ['Weight', 'Length', 'Volume']
+  return ['Weight', 'Length'] //, 'Volume'] // want to add volume but presently data is bad
 }
 
 /*
-getBabySizeRaw(weeks, comparisonType)
-return all the info for that , update other formats to use this once some logic and formatting is in place in now div func
+next steps are updating info about sizes of things and allowing comparisons between two
 getBabySizeComparisonDiv(babyProps1, babyProps2)
 */
 
-export default getBabySizeDiv
+export default BabySizeDiv
