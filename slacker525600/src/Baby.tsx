@@ -1,45 +1,45 @@
 import React, { ChangeEvent, FC, useState } from 'react'
-import { babyInputProps, babyProps } from './babyTypes'
+import { babyInputProps } from './babyTypes'
 import FooterLinks from './footerLinks'
-import getBabySizeDiv, { getComparisonTypes } from './sizeLogic'
+import BabySizeDiv, { getPriorityOptions } from './size_logic/sizeLogic'
+import { getComparisonTypes } from './size_logic/comparisonObjects'
 
-/*
-Current idea is to provide an easy to use baby size comparison application.
-then move to weeks since fertilization yielding mass
-then move to all the other things (types/weightvslength/)
-then worry about UX of interaction of above ... ratios lulz
-*/
-
-const BabyOutputs: FC<babyProps> = ({ weeks, comparisonType }) => {
-  return (
-    <div>
-      At {weeks} weeks... <br />
-      {getBabySizeDiv({ weeks, comparisonType })}
-    </div>
-  )
-}
-
-const BabyInputs: FC<babyInputProps> = ({ weeks, weeksSetter, comparisonType, comparisonTypeSetter }) => {
-  return (
+const BabyInputs: FC<babyInputProps> = (
+  {
+    weeks,
+    weeksSetter,
+    comparisonType,
+    comparisonTypeSetter,
+    priority,
+    prioritySetter
+  }) => (
     <form >
       <label htmlFor="comparisonType" > Choose a comparison type: </label>
       <select id="comparisonType" name="comparisonType" value={comparisonType} onChange={comparisonTypeSetter}>
         {
-          getComparisonTypes().map((comparisonType) => {
+          getComparisonTypes().map((comparisonType: string) => {
             return <option value={comparisonType} key={comparisonType} >{comparisonType}</option>
           })
         }
       </select>
       <br />
       <label htmlFor="weeks">Weeks since conception:</label>
-      <input type='number' id='weeks' value={weeks} onChange={weeksSetter}></input>
+      <input type='number' id='weeks' value={weeks} onChange={weeksSetter} min="0" max="42"></input>
+      <label htmlFor="priority">Size Priority:</label>
+      <select id="priority" name="priority" value={priority} onChange={prioritySetter}>
+        {
+          getPriorityOptions().map((priority) => {
+            return <option value={priority} key={priority} >{priority}</option>
+          })
+        }
+      </select>
     </form>
-  )
-}
+)
 
 const Baby: FC = () => {
   const [weeks, setWeeks] = useState(1)
-  const [comparisonType, setComparisonType] = useState('Grams')
+  const [comparisonType, setComparisonType] = useState('Goth')
+  const [priority, setPriority] = useState('Weight')
 
   const handleWeeksChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const weeksVal: number = +event.currentTarget.value > 0 ? +event.currentTarget.value : 1
@@ -48,6 +48,10 @@ const Baby: FC = () => {
 
   const handleComparisonTypeChange = (event: ChangeEvent<HTMLSelectElement>): void => {
     setComparisonType(event.currentTarget.value)
+  }
+
+  const handlePriorityChange = (event: ChangeEvent<HTMLSelectElement>): void => {
+    setPriority(event.currentTarget.value)
   }
 
   return (
@@ -60,7 +64,7 @@ const Baby: FC = () => {
       <div className="main-block">
         <div className='content'>
           <div className='image'>
-            <BabyOutputs weeks={weeks} comparisonType={comparisonType} />
+            <BabySizeDiv weeks={weeks} comparisonType={comparisonType} priority={priority} />
           </div>
         </div>
         <div className='messagebox'>
@@ -73,6 +77,8 @@ const Baby: FC = () => {
             weeksSetter={handleWeeksChange}
             comparisonType={comparisonType}
             comparisonTypeSetter={handleComparisonTypeChange}
+            priority={priority}
+            prioritySetter={handlePriorityChange}
           />
         </div>
       </div>
