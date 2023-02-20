@@ -25,6 +25,7 @@ const BabyInputs: FC<babyInputProps> = (
       <br />
       <label htmlFor="weeks">Weeks since conception:</label>
       <input type='number' id='weeks' value={weeks} onChange={weeksSetter} min="0" max="42"></input>
+      <br />
       <label htmlFor="priority">Size Priority:</label>
       <select id="priority" name="priority" value={priority} onChange={prioritySetter}>
         {

@@ -43,6 +43,7 @@ const BabySizeDiv: FC<babyProps> = ({ weeks, comparisonType, priority }) => {
   return (
     <div>
       <SizeDiv week={weeks} size={sizesByWeek[weeks]} bMetric={false} />
+      <br/>
       { `In an ${comparisonType}-ly sense your Baby is: ${displayVal}` }
     </div>
   )
