@@ -37,7 +37,7 @@ const FooterLinks: FC = () => (
   <div className="footer">
       { footerVals.map((item) => <FooterLink key={item.link} link={item.link} altText={item.altText} image={item.image} />) }
       <br />
-      copyright chris ecker 2022
+      copyright chris ecker 2023
   </div>
 )
 

@@ -14,6 +14,22 @@ const SizeDiv: FC<sizeDisplay> = ({ week, size, bMetric }) => {
   )
 }
 
+const ImageDiv: FC<{ images: JSX.Element[] }> = ({ images }) => {
+  if (images.length === 1) {
+    return (
+      <div>
+        {images[0]}
+      </div>
+    )
+  } else {
+    return (
+      <div className="img-compare">
+        {images[0]} {images[1]}
+      </div>
+    )
+  }
+}
+
 const BabySizeDiv: FC<babyProps> = ({ weeks, comparisonType, priority }) => {
   // get week stats for mass/length/volume
   // check nearest options
@@ -27,17 +43,22 @@ const BabySizeDiv: FC<babyProps> = ({ weeks, comparisonType, priority }) => {
 
   let index = 0
   let displayVal: string = ''
+  const images: JSX.Element[] = []
   while (index < matchedTypes.length && getValByCompType(matchedTypes[index], priority) < getValByWeekSize(sizesByWeek[weeks], priority)) {
     index++
   }
   if (index === matchedTypes.length) {
     displayVal = `Nothing in our data is as large as your baby but the closest match is ${matchedTypes[index - 1].objectName}`
+    images.push(matchedTypes[index - 1].objectImg)
   } else if (index > 0) {
     displayVal = `Somewhere between a ${matchedTypes[index - 1].objectName} and a ${matchedTypes[index].objectName}`
+    images.push(matchedTypes[index - 1].objectImg)
+    images.push(matchedTypes[index].objectImg)
   } else if (matchedTypes.length === 0) {
     displayVal = `Theres an issue finding any matches for this type: ${comparisonType}`
   } else {
     displayVal = `We don't have a good estimate in this category for that time but the closest datapoint is a ${matchedTypes[index].objectName}`
+    images.push(matchedTypes[index].objectImg)
   }
 
   return (
@@ -45,6 +66,8 @@ const BabySizeDiv: FC<babyProps> = ({ weeks, comparisonType, priority }) => {
       <SizeDiv week={weeks} size={sizesByWeek[weeks]} bMetric={false} />
       <br/>
       { `In an ${comparisonType}-ly sense your Baby is: ${displayVal}` }
+      <br/>
+      <ImageDiv images={images} />
     </div>
   )
 }

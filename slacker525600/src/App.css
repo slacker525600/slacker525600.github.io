@@ -62,6 +62,9 @@ div.image {
 div.image img{
   width: 85%;
 }
+div.img-compare img{
+  width: 45%;
+}
 
 .footer {
   padding-top: 20px;

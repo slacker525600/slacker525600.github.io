@@ -31,7 +31,7 @@ export class BabyComparisonObject {
   volume: number
   objectTypeLabel: string
   objectName: string
-  objectImg: string
+  objectImg: JSX.Element
 
   constructor (
     weight: number,
@@ -39,7 +39,7 @@ export class BabyComparisonObject {
     volume: number,
     objectTypeLabel: string,
     objectName: string,
-    objectImg: string
+    objectImg: JSX.Element
   ) {
     this.weight = weight
     this.length = length
